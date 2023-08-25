@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useMemo } from "react";
 import axios from "axios"; 
 
 
@@ -10,14 +10,16 @@ const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [products, setProducts] = useState<any[]>([]); // Will replace "any[]" with the actual type of your products later
 
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get('https://fakestoreapi.com/products');
-        const data = await response.data;
         
-        setProducts(data);
-        console.log(data); // Log the fetched data
+        
+        setProducts(response.data);
+        console.log(response.data); // Log the fetched data
+        
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -26,8 +28,10 @@ const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchProducts();
   }, []);
 
+  const memoizedValue = useMemo(() => ({ products }), [products]);
+
   return (
-    <ProductContext.Provider value={products}>
+    <ProductContext.Provider value={memoizedValue}>
       {children}
     </ProductContext.Provider>
   );
