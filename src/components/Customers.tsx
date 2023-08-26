@@ -12,7 +12,7 @@ const Customers = () => {
           We're in over 100 stores around the world
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-0 -mx-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0 ">
         <div className="flex items-center justify-center border border-[#eaeaea] py5 md:py-8 px-2">
           <img src={Company1Logo} alt="Company 1" className="w-20" />
         </div>

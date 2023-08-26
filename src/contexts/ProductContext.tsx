@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useMemo } from "react";
 import axios from "axios"; 
-
+import { ProductType } from "../types/types";
 
 export const ProductContext = createContext<any>(null);
 
@@ -8,7 +8,7 @@ export const ProductContext = createContext<any>(null);
 const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [products, setProducts] = useState<any[]>([]); // Will replace "any[]" with the actual type of your products later
+  const [products, setProducts] = useState<ProductType[]>([]); // Will replace "any[]" with the actual type of your products later
 
   
   useEffect(() => {

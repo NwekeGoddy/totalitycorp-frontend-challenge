@@ -10,9 +10,12 @@ import { FiTrash2 } from "react-icons/fi";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart } = useContext(CartContext);
+  const { cart, total, clearCart } = useContext(CartContext);
 
+  console.log(cart)
   return (
+
+
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
@@ -28,9 +31,41 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="flex flex-col ">{cart.map((item:CartProductType)=> {
-        return <CartItem item={item} key={item.id}/>
-      })}</div>
+{cart.length >= 1 &&  <div>
+<div className="flex flex-col gap-y-2 h-[420px] lg:h-[540px] overflow-y-auto overflow-x-hidden">
+        {cart.map((item: CartProductType) => {
+          return <CartItem item={item} key={item.id} />;
+        })}
+      </div>
+
+      <div className=" flex flex-col gap-y-3 py-4">
+        <div className=" flex w-full justify-between items-center">
+          <div className="uppercase font-semibold">
+            <span className="mr-2">Total :</span> ₦{Number(total.toFixed(2))}
+          </div>
+
+          <div
+            onClick={() => clearCart()}
+            className="cursor-pointer py-3 bg-rose-500 text-white w-10 h-10 flex justify-center items-center text-xl "
+          >
+            <FiTrash2 />
+          </div>
+        </div>
+      </div>
+
+      <div className="text-white bg-black px-6 py-3 font-semibold text-center my-3 w-full">
+        <Link to={"/"}>Proceed to Checkout</Link>
+      </div>
+</div>}
+      
+
+    {cart.length <= 0 &&  <div className="flex flex-col items-center justify-center h-full">
+     <p className="text-black font-medium">There's only emptiness</p> 
+
+     <div  onClick={handleClose} className="text-white bg-black px-4 py-2 font-semibold text-center my-2 rounded-md cursor-pointer">
+       Shop Now
+      </div>
+      </div>}
     </div>
   );
 };
