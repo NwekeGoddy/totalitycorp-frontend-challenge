@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# MyShup Ecommerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to MyShup! This is a simple ecommerce web application built using HTML, CSS, Tailwind CSS, and TypeScript. MyShup allows users to browse through products, add items to the cart, and make purchases.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Home Page:
+  - Introduction section with app overview.
+  - Product list with details such as name, price, and image.
+  - Ability to add products to the cart.
+  - Responsive design for various screen sizes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Product Page:
+  - Detailed view of individual products.
+  - Additional product information.
+  - Option to add the product to the cart.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- HTML
+- CSS
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository: `git clone https://github.com/NwekeGoddy/totalitycorp-frontend-challenge`
+2. Navigate to the project directory: `cd myshup`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open the `index.html` file in your preferred web browser to access the home page.
+2. Navigate to the product page by clicking on a product from the product list.
 
-### `npm run eject`
+## Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-HomePage
+![Capture](https://github.com/NwekeGoddy/totalitycorp-frontend-challenge/assets/95291101/115626f3-2669-4894-8034-015bf6e9ca99)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Developed by [Nweke Chidi](https://github.com/NwekeGoddy)
