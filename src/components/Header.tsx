@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import Logo from "../img/myshuplogo.png";
 
+import { SidebarContext } from "../contexts/SidebarContext";
+
 const Header = () => {
+
+const {isOpen, setIsOpen} = useContext(SidebarContext);
+
   return (
     <section className="px-4 md:px-6  lg:px-8 mb-4 max-w-[1600px] mx-auto">
       <header className="py-3  sm:py-4 flex flex-row justify-between items-center">
@@ -15,7 +20,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex flex-row gap-6 items-center">
-          <div>
+          <div onClick={()=> setIsOpen(!isOpen)} className="cursor-pointer">
             <svg
               width="24"
               height="24"
@@ -29,9 +34,9 @@ const Header = () => {
               <path
                 d="M9.5 10.117V5.93c0-1.668 1.12-2.328 2.5-2.328s2.5.66 2.5 2.328v4.187"
                 stroke="#131315"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
 
@@ -51,14 +56,14 @@ const Header = () => {
                 r="3.75"
                 fill="#E4584E"
                 stroke="#fff"
-                stroke-width="1.5"
+                strokeWidth="1.5"
               ></circle>
               <path
                 d="M9.5 10.117V5.93c0-1.668 1.12-2.328 2.5-2.328s2.5.66 2.5 2.328v4.187"
                 stroke="#131315"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg> */}
           </div>

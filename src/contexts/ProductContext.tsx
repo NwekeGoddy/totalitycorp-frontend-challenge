@@ -18,7 +18,7 @@ const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         
         
         setProducts(response.data);
-        console.log(response.data); // Log the fetched data
+       
         
       } catch (error) {
         console.error("Error fetching products:", error);
