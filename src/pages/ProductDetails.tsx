@@ -60,7 +60,7 @@ const ProductDetails = () => {
                 <Link
                   to="/"
                 >
-                  Go Home
+                  Go Back
                 </Link>
                 </div>
               
