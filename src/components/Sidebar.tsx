@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
-import { CartProductType, ProductType } from "../types/types";
+import { CartProductType} from "../types/types";
 
 import { IoMdArrowForward } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";

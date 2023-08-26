@@ -10,7 +10,7 @@ type CartItemProps = {
 };
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  const { id, image, category, title, price, amount } = item;
+  const { id, image, title, price, amount } = item;
   const { removeFromCart, incrementAmount,  decrementAmount } = useContext(CartContext);
 
   return (

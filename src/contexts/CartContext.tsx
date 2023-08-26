@@ -18,7 +18,7 @@ const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }, 0);
 
     setTotal(total);
-  })
+  },[cart])
 
 
   useEffect(() => {
