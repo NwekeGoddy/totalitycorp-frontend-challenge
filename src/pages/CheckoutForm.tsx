@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Formik, FormikHelpers ,  Form, Field, ErrorMessage } from "formik";
+import { Formik, FormikHelpers, Form, Field, ErrorMessage } from "formik";
 import PaystackPop from "@paystack/inline-js";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
@@ -8,6 +8,8 @@ import countries from "countries-list";
 import Select from "react-select";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface FormData {
   email: string;
@@ -33,7 +35,7 @@ const validationSchema = Yup.object().shape({
 
 const CheckoutForm: React.FC = () => {
   const { total, clearCart } = useContext(CartContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [countryOptions, setCountryOptions] = useState<any[]>(
     Object.entries(countries.countries).map(([code, country]) => ({
       value: code,
@@ -46,7 +48,7 @@ const CheckoutForm: React.FC = () => {
     formikHelpers: FormikHelpers<FormData>
   ) => {
     const paystack = new PaystackPop();
-  
+
     paystack.newTransaction({
       key: "pk_test_aba653f780012b13ab41f86259ba3b78557266ee",
       amount: (total + 70) * 100,
@@ -67,11 +69,12 @@ const CheckoutForm: React.FC = () => {
             country: "",
           },
         });
-        clearCart(); 
+        clearCart();
         navigate("/");
+        toast.success("Payment Completed!", { autoClose: 3000 }); 
       },
       onCancel() {
-        // console.log("Payment cancelled");
+        toast.error("Payment cancelled!", { autoClose: 3000 }); 
       },
     });
   };
@@ -106,7 +109,7 @@ const CheckoutForm: React.FC = () => {
                   type="email"
                   name="email"
                   required
-                  className="w-full border p-1 rounded"
+                  className="w-full border p-1 rounded focus:border-2 focus:border-[#e5e7eb] "
                 />
                 <ErrorMessage
                   name="email"
@@ -159,7 +162,13 @@ const CheckoutForm: React.FC = () => {
                       )}
                       onChange={(selectedOption: any) => {
                         form.setFieldValue(field.name, selectedOption.value);
-                        setCountryOptions([field.name, selectedOption.value]);
+                        setCountryOptions([
+                          ...countryOptions.map((option) =>
+                            option.value === field.name
+                              ? selectedOption.value
+                              : option.value
+                          ),
+                        ]);
                       }}
                     />
                   )}
@@ -222,9 +231,8 @@ const CheckoutForm: React.FC = () => {
               {/* Phone */}
               <div>
                 <label className="block mb-1">Phone:</label>
-                <Field
-                  name="phone"
-                  render={({ field, form }: any) => (
+                <Field name="phone">
+                  {({ field, form }: any) => (
                     <PhoneInput
                       country={"us"}
                       value={field.value}
@@ -237,7 +245,7 @@ const CheckoutForm: React.FC = () => {
                       }}
                     />
                   )}
-                />
+                </Field>
                 <ErrorMessage
                   name="phone"
                   component="div"
@@ -280,6 +288,7 @@ const CheckoutForm: React.FC = () => {
           </Form>
         </Formik>
       </div>
+      <ToastContainer position="bottom-center" />
     </section>
   );
 };

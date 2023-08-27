@@ -3,6 +3,22 @@ import Tray from "../img/tray.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+
+  const handleClickScroll = () => {
+    const element = document.getElementById("shop-section");
+    if (element) {
+    
+    const offset = -120; 
+    const targetPosition = element.getBoundingClientRect().top + window.scrollY + offset;
+
+   
+    setTimeout(function(){
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+  }, 50);
+    
+    }
+  };
+
   return (
     <section className="relative my-14">
       <div className="relative bg-[#c0c7de] flex justify-end">
@@ -31,7 +47,7 @@ const Hero = () => {
               Starting at ₦5.00
             </p>
             <Link to="/">
-              <button className="text-xs md:text-base text-white bg-black rounded px-4 md:px-6 py-2">
+              <button onClick={()=>handleClickScroll()} className="text-xs md:text-base text-white bg-black rounded px-4 md:px-6 py-2">
                 Discover More
               </button>
             </Link>

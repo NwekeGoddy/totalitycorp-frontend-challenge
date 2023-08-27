@@ -66,7 +66,7 @@ const Home = () => {
       <div className="px-4 md:px-6 lg:px-8 max-w-[1600px] mx-auto py-16">
         <Hero />
 
-        <h2 className="my-4 w-full text-center  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium">
+        <h2 id="shop-section" className="my-4 w-full text-center  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium">
           the <span className="opacity-60">SHUP</span>
         </h2>
 
