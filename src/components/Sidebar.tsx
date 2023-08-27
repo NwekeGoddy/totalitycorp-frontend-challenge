@@ -30,7 +30,7 @@ const Sidebar = () => {
 
       {cart.length >= 1 && (
         <div>
-          <div className="flex flex-col gap-y-2 h-[520px] lg:h-[540px] overflow-y-auto overflow-x-hidden">
+          <div className="flex flex-col gap-y-2 h-[450px] lg:h-[400px] overflow-y-auto overflow-x-hidden">
             {cart.map((item: CartProductType) => {
               return <CartItem item={item} key={item.id} />;
             })}
