@@ -9,7 +9,7 @@ const Footer = () => {
     <div>
             <img className="w-[108px] h-[27px] my-4" src={Logo} alt="myshup Logo" />
           </div>
-          <div className="flex flex-row flex-wrap gap-6 text-sm my-4">
+          <div className="flex flex-row flex-wrap gap-6 text-base my-4">
             <div className="flex flex-col">
               <h3 className="font-bold mb-2">Product</h3>
               <ul className="flex flex-col gap-2">
@@ -39,7 +39,7 @@ const Footer = () => {
 
     </div>
       {/* bottom Info */}
-      <div className="mt-6 flex flex-row py-3 text-xs sm:text-sm gap-2 items-center">
+      <div className="mt-6 flex flex-row py-3 text-base gap-2 items-center">
         <p className="opacity-60">Legal terms and information:</p>
 
         <Link className="hover:underline" to={"/"}>

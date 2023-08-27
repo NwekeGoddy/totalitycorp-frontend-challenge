@@ -45,7 +45,7 @@ const ProductDetails = () => {
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-2 max-w-[450px] mx-auto lg:mx-0 leading-tight tracking-wide">
                 {title}
               </h2>
-              <div className="uppercase font-semibold text-base md:text-xl mb-6">
+              <div className="uppercase text-[#788e9b] font-bold text-base md:text-xl mb-6">
                 ₦{price}
               </div>
               <p className="mb-8">{description}</p>

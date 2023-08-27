@@ -14,16 +14,16 @@ const Customers = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-0 ">
         <div className="flex items-center justify-center border border-[#eaeaea] py5 md:py-8 px-2">
-          <img src={Company1Logo} alt="Company 1" className="w-20" />
+          <img src={Company1Logo} alt="Company 1" className="w-20 my-4 md:my-0" />
         </div>
         <div className="flex items-center justify-center border border-[#eaeaea] py5 md:py-8 px-2">
-          <img src={Company2Logo} alt="Company 2" className="w-20" />
+          <img src={Company2Logo} alt="Company 2" className="w-20 my-4 md:my-0" />
         </div>
         <div className="flex items-center justify-center border border-[#eaeaea] py5 md:py-8 px-2">
-          <img src={Company3Logo} alt="Company 3" className="w-20" />
+          <img src={Company3Logo} alt="Company 3" className="w-20 my-4 md:my-0" />
         </div>
         <div className="flex items-center justify-center border border-[#eaeaea] py5 md:py-8 px-2">
-          <img src={Company4Logo} alt="Company 4" className="w-20" />
+          <img src={Company4Logo} alt="Company 4" className="w-20 my-4 md:my-0" />
         </div>
       </div>
     </section>

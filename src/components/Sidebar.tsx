@@ -19,7 +19,7 @@ const Sidebar = () => {
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
-      }  w-full bg-white fixed top-0 shadow-2xl md:w-[35vw] xl;w-[30vw] h-full transition-all duration-300 z-20 px-4 lg:px-8`}
+      }  w-full bg-white fixed top-0 shadow-2xl md:w-[35vw] xl:w-[30vw]  transition-all duration-300 z-20 px-4 lg:px-8`}
     >
       <div className="flex items-center justify-between py-5 border-b">
         <div className="text-sm font-semibold">Shopping Bag</div>
@@ -32,7 +32,7 @@ const Sidebar = () => {
       </div>
 
 {cart.length >= 1 &&  <div>
-<div className="flex flex-col gap-y-2 h-[420px] lg:h-[540px] overflow-y-auto overflow-x-hidden">
+<div className="flex flex-col gap-y-2 h-[520px] lg:h-[540px] overflow-y-auto overflow-x-hidden">
         {cart.map((item: CartProductType) => {
           return <CartItem item={item} key={item.id} />;
         })}
@@ -53,13 +53,13 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="text-white bg-black px-6 py-3 font-semibold text-center my-3 w-full">
+      <div className="text-white bg-black px-6 py-3 mb-6 font-semibold text-center mt-3 w-full">
         <Link to={"/"}>Proceed to Checkout</Link>
       </div>
 </div>}
       
 
-    {cart.length <= 0 &&  <div className="flex flex-col items-center justify-center h-full">
+    {cart.length <= 0 &&  <div className="flex flex-col items-center justify-center h-full   my-48">
      <p className="text-black font-medium">There's only emptiness</p> 
 
      <div  onClick={handleClose} className="text-white bg-black px-4 py-2 font-semibold text-center my-2 rounded-md cursor-pointer">

@@ -16,13 +16,13 @@ const Hero = () => {
 
         <div className="absolute top-0 left-0 p-10 text-black flex flex-col justify-between h-full">
           <div className="">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
               New Arrivals
             </h2>
-            <h2 className="text-xl md:text-3xl lg:text-4xl opacity-50 font-bold mb-1 md:mb-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl opacity-50 font-bold mb-1 md:mb-2">
               Breeze
             </h2>
-            <p className="w-1/2 sm:w-full text-sm md:text-base opacity-95">
+            <p className="w-1/2 sm:w-full text-base opacity-95">
               Elevate Your Style, Embrace the Trends
             </p>
           </div>
