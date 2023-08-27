@@ -159,7 +159,7 @@ const CheckoutForm: React.FC = () => {
                       )}
                       onChange={(selectedOption: any) => {
                         form.setFieldValue(field.name, selectedOption.value);
-                        // setCountryOptions(selectedOption.value);
+                        setCountryOptions([field.name, selectedOption.value]);
                       }}
                     />
                   )}
