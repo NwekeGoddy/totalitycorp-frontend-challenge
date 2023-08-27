@@ -52,7 +52,7 @@ const Header = () => {
     </div>
     <div className="bg-[#788e9b] ">
       <p className="text-white px-8 py-2.5 text-center text-[12px]  sm:text-sm  md:text-base">
-        Free shipping | Portugal & Spain - over ₦50 | EU - over ₦100 |
+        Free shipping | Ghana & Benin - over ₦50 | EU - over ₦100 |
         Worldwide - over ₦200
       </p>
     </div>

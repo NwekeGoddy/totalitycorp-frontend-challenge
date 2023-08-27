@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { ProductType } from "../types/types";
-import Filter from "../img/svg/filter.svg"
+import Filter from "../img/svg/filter.svg";
 import Hero from "../components/Hero";
 import Product from "../components/Product";
 import Features from "../components/Features";
@@ -11,12 +11,13 @@ import Prefooter from "../components/Prefooter";
 const Home = () => {
   const { products } = useContext(ProductContext);
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [categoryFilters, setCategoryFilters] = useState([]);
-  const [priceFilters, setPriceFilters] = useState([]);
+  const [filteredProducts, setFilteredProducts] =
+    useState<ProductType[]>(products);
+  const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
+  const [priceFilters, setPriceFilters] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
 
-  const filterRef = useRef(null);
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const filterProducts = () => {
     let filtered = [...products];
@@ -64,7 +65,9 @@ const Home = () => {
       <div className="px-4 md:px-6 lg:px-8 max-w-[1600px] mx-auto py-16">
         <Hero />
 
-        <h2 className="my-4 w-full text-center  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium">the <span className="opacity-60">SHUP</span></h2>
+        <h2 className="my-4 w-full text-center  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium">
+          the <span className="opacity-60">SHUP</span>
+        </h2>
 
         <div className="container mx-auto">
           {/* Filter Button */}
@@ -72,8 +75,8 @@ const Home = () => {
             onClick={handleFilterToggle}
             className=" text-black py-2 pr-4 font-medium  mb-4 flex flex-row gap-2 items-center"
           >
-            <img src={Filter} alt="Filter Icon"/>
-           <p>{showFilters ? "Hide Filters" : "Show Filter"}</p> 
+            <img src={Filter} alt="Filter Icon" />
+            <p>{showFilters ? "Hide Filters" : "Show Filter"}</p>
           </button>
 
           {/* Filters */}
@@ -86,7 +89,12 @@ const Home = () => {
             {/* Rest of the filters code */}
             <div>
               <label className="font-medium pb-1 border-b ">Categories :</label>
-              {["electronics", "jewelery", "men's clothing", "women's clothing"].map((category) => (
+              {[
+                "electronics",
+                "jewelery",
+                "men's clothing",
+                "women's clothing",
+              ].map((category) => (
                 <label key={category} className="block mt-2 capitalize ">
                   <input
                     type="checkbox"
@@ -95,9 +103,14 @@ const Home = () => {
                     checked={categoryFilters.includes(category)}
                     onChange={(e) =>
                       e.target.checked
-                        ? setCategoryFilters([...categoryFilters, e.target.value])
+                        ? setCategoryFilters([
+                            ...categoryFilters,
+                            e.target.value,
+                          ])
                         : setCategoryFilters(
-                            categoryFilters.filter((item) => item !== e.target.value)
+                            categoryFilters.filter(
+                              (item) => item !== e.target.value
+                            )
                           )
                     }
                   />
@@ -106,14 +119,17 @@ const Home = () => {
               ))}
             </div>
             <div>
-            <label className="font-medium pb-1 border-b ">Price Range:</label>
+              <label className="font-medium pb-1 border-b ">Price Range:</label>
               {[
-                { label: "$0 - $100", value: "0-100" },
-                { label: "$101 - $200", value: "101-200" },
-                { label: "$201 - $300", value: "201-300" },
-                { label: "$300 - Above", value: "300-" },
+                { label: "₦0 - ₦100", value: "0-100" },
+                { label: "₦101 - ₦200", value: "101-200" },
+                { label: "₦201 - ₦300", value: "201-300" },
+                { label: "₦300 - Above", value: "300-" },
               ].map((priceRange) => (
-                <label key={priceRange.value} className="block mt-2 capitalize ">
+                <label
+                  key={priceRange.value}
+                  className="block mt-2 capitalize "
+                >
                   <input
                     type="checkbox"
                     className="mr-2 accent-[#000000]"
@@ -122,7 +138,11 @@ const Home = () => {
                     onChange={(e) =>
                       e.target.checked
                         ? setPriceFilters([...priceFilters, e.target.value])
-                        : setPriceFilters(priceFilters.filter((item) => item !== e.target.value))
+                        : setPriceFilters(
+                            priceFilters.filter(
+                              (item) => item !== e.target.value
+                            )
+                          )
                     }
                   />
                   {priceRange.label}

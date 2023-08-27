@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
 import { CartContext } from "../contexts/CartContext";
 import { ProductType } from "../types/types";
+import CheckoutForm from "./CheckoutForm";
 
 import Prefooter from "../components/Prefooter";
 import Features from "../components/Features";
@@ -71,6 +72,8 @@ const ProductDetails = () => {
       </section>
       <Features />
       <Prefooter />
+
+      <CheckoutForm/>
     </div>
   );
 };
