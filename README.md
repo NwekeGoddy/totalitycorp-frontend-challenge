@@ -57,14 +57,8 @@ Welcome to MyShup! This is a simple ecommerce web application built using HTML, 
 - **Product Page**
   ![2](https://github.com/NwekeGoddy/totalitycorp-frontend-challenge/assets/95291101/fc9d1568-a545-4fc7-9927-6bd382f769a4)
 
-
-- **Cart Page**
-- 
-![3](https://github.com/NwekeGoddy/totalitycorp-frontend-challenge/assets/95291101/5dd3a979-611c-44b6-a73a-ad5017b706a8)
-
-
 - **Checkout Page**
-![4](https://github.com/NwekeGoddy/totalitycorp-frontend-challenge/assets/95291101/6f7ed7b2-dbe7-4bfb-b35b-f2ba66022013)
+![3](https://github.com/NwekeGoddy/totalitycorp-frontend-challenge/assets/95291101/6f7ed7b2-dbe7-4bfb-b35b-f2ba66022013)
 
 ## Website
 
