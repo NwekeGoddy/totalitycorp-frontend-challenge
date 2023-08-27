@@ -57,7 +57,7 @@ const CheckoutForm: React.FC = () => {
   return (
     <section className="mt-4 px-8 pt-6 max-w-4xl mx-auto ">
       <div className="flex flex-col items-center mt-[103px]">
-        <h2 className="my-4 w-full text-;eft  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium">
+        <h2 className="my-4 w-full text-left  text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium">
           Express<span className="opacity-60">CHECKOUT</span>
         </h2>
 
@@ -125,8 +125,8 @@ const CheckoutForm: React.FC = () => {
                 />
               </div>
 
-                {/* Country */}
-                <div>
+              {/* Country */}
+              <div>
                 <label className="block mb-1">Country:</label>
                 <Field name="country">
                   {({ field, form }: any) => (
@@ -135,9 +135,10 @@ const CheckoutForm: React.FC = () => {
                       value={countryOptions.find(
                         (option) => option.value === field.value
                       )}
-                      onChange={(selectedOption: any) =>
-                        form.setFieldValue(field.name, selectedOption.value)
-                      }
+                      onChange={(selectedOption: any) => {
+                        form.setFieldValue(field.name, selectedOption.value);
+                        setCountryOptions(selectedOption.value);
+                      }}
                     />
                   )}
                 </Field>
@@ -148,8 +149,8 @@ const CheckoutForm: React.FC = () => {
                 />
               </div>
 
-               {/* City */}
-               <div>
+              {/* City */}
+              <div>
                 <label className="block mb-1">City:</label>
                 <Field
                   type="text"
@@ -179,8 +180,6 @@ const CheckoutForm: React.FC = () => {
                   className="text-red-500 text-sm"
                 />
               </div>
-
-             
 
               {/* Postal Code */}
               <div>
@@ -223,15 +222,22 @@ const CheckoutForm: React.FC = () => {
                   className="text-red-500 text-sm"
                 />
               </div>
-
-            
             </div>
 
             {/* Subtotal and Total */}
-            <div className="mt-8">
-              <p>Subtotal: {total}</p>
-              <p>Shipping(flat): ₦70</p>
-              <p>Total: ₦{total}</p>
+            <div className="mt-8 w-full flex flex-col gap-2 sm:w-[300px]">
+              <div className="flex flex-row gap-20 items-center justify-between">
+                <p>Subtotal</p>
+                <p>₦{total}</p>
+              </div>
+              <div className="flex flex-row gap-20 items-center justify-between">
+                <p>Shipping(flat):</p>
+                <p>₦70.00</p>
+              </div>
+              <div className="border-t pt-2 flex flex-row gap-20 items-center justify-between font-bold">
+                <p>Total</p>
+                <p>₦{total + 70}</p>
+              </div>
             </div>
 
             <div className="flex flex-row gap-2 justify-center mt-4">
