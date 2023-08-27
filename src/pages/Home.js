@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { ProductContext } from "../contexts/ProductContext";
+import { ProductType } from "../types/types";
 import Filter from "../img/svg/filter.svg"
 import Hero from "../components/Hero";
 import Product from "../components/Product";
@@ -49,6 +50,14 @@ const Home = () => {
       filterRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  if (!filteredProducts) {
+    return (
+      <section className="h-screen flex justify-center items-center">
+        Loading...
+      </section>
+    );
+  }
 
   return (
     <section>

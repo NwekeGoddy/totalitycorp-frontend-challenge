@@ -8,7 +8,7 @@ export const ProductContext = createContext<any>(null);
 const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [products, setProducts] = useState<ProductType[]>([]); // Will replace "any[]" with the actual type of your products later
+  const [products, setProducts] = useState<ProductType[]>([]); 
 
   
   useEffect(() => {
@@ -21,7 +21,7 @@ const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
        
         
       } catch (error) {
-        console.error("Error fetching products:", error);
+        // console.error("Error fetching products:", error);
       }
     };
   
