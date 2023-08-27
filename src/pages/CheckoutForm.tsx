@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Formik, FormikHelpers ,  Form, Field, ErrorMessage } from "formik";
+import PaystackPop from "@paystack/inline-js";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import * as Yup from "yup";
-import axios from "axios";
 import countries from "countries-list";
 import Select from "react-select";
 import PhoneInput from "react-phone-input-2";
@@ -32,6 +32,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const CheckoutForm: React.FC = () => {
+  const { total, clearCart } = useContext(CartContext);
+  const navigate = useNavigate()
   const [countryOptions, setCountryOptions] = useState<any[]>(
     Object.entries(countries.countries).map(([code, country]) => ({
       value: code,
@@ -39,20 +41,40 @@ const CheckoutForm: React.FC = () => {
     }))
   );
 
-  const handleSubmit = async (values: FormData) => {
-    try {
-      // Simulate API call
-      const response = await axios.post(
-        "https://dummy-api.com/checkout",
-        values
-      );
-      console.log(response.data); // Handle API response
-    } catch (error) {
-      console.error(error);
-    }
+  const handleSubmit = async (
+    values: FormData,
+    formikHelpers: FormikHelpers<FormData>
+  ) => {
+    const paystack = new PaystackPop();
+  
+    paystack.newTransaction({
+      key: "pk_test_aba653f780012b13ab41f86259ba3b78557266ee",
+      amount: (total + 70) * 100,
+      email: values.email,
+      firstname: values.firstName,
+      lastname: values.lastName,
+      metadata: { message: "Payment" },
+      onSuccess(transaction: any) {
+        formikHelpers.resetForm({
+          values: {
+            email: "",
+            firstName: "",
+            lastName: "",
+            address: "",
+            city: "",
+            postalCode: "",
+            phone: "",
+            country: "",
+          },
+        });
+        clearCart(); 
+        navigate("/");
+      },
+      onCancel() {
+        // console.log("Payment cancelled");
+      },
+    });
   };
-
-  const { total } = useContext(CartContext);
 
   return (
     <section className="mt-4 px-8 pt-6 max-w-4xl mx-auto ">
@@ -137,7 +159,7 @@ const CheckoutForm: React.FC = () => {
                       )}
                       onChange={(selectedOption: any) => {
                         form.setFieldValue(field.name, selectedOption.value);
-                        setCountryOptions(selectedOption.value);
+                        // setCountryOptions(selectedOption.value);
                       }}
                     />
                   )}
@@ -228,15 +250,15 @@ const CheckoutForm: React.FC = () => {
             <div className="mt-8 w-full flex flex-col gap-2 sm:w-[300px]">
               <div className="flex flex-row gap-20 items-center justify-between">
                 <p>Subtotal</p>
-                <p>₦{total}</p>
+                <p>₦ {Number(total.toFixed(2))}</p>
               </div>
               <div className="flex flex-row gap-20 items-center justify-between">
                 <p>Shipping(flat):</p>
-                <p>₦70.00</p>
+                <p>₦ 70.00</p>
               </div>
               <div className="border-t pt-2 flex flex-row gap-20 items-center justify-between font-bold">
                 <p>Total</p>
-                <p>₦{total + 70}</p>
+                <p>₦ {Number((total + 70).toFixed(2))}</p>
               </div>
             </div>
 
