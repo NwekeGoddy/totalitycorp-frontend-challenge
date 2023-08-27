@@ -32,7 +32,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <section className="mt-[100px] h-screen pb-12 lg:py-32 flex items-center">
+      <section className="mt-[110px] pt-[20px] md:pt-[50px]  flex items-center">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
