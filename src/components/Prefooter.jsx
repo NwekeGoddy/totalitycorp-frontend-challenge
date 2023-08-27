@@ -18,7 +18,6 @@ const Prefooter = () => {
       setEmail("");
     } else {
       // Handle subscription logic here
-      console.log("Subscribed with email:", email);
       toast.success("Email sent successfully!", { autoClose: 3000 }); // Show success notification
       setEmail("");
     }
