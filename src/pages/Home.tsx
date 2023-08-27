@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { ProductType } from "../types/types";
 import Filter from "../img/svg/filter.svg";
+import Nodata from '../img/nodata.png'
 import Hero from "../components/Hero";
 import Product from "../components/Product";
 import Features from "../components/Features";
@@ -165,11 +166,21 @@ const Home = () => {
           </button>
 
           {/* Product List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {filteredProducts.map((product) => {
-              return <Product product={product} key={product.id} />;
-            })}
-          </div>
+          {filteredProducts && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {filteredProducts.map((product) => {
+                return <Product product={product} key={product.id} />;
+              })}
+            </div>
+          )}
+
+          {filteredProducts.length < 1 && (
+            <div className="my-8 text-center font-medium flex flex-col gap-2 items-center justify-center">
+              
+              <img src={Nodata} alt="No data" className="w-[100px] sm:w-[150px] md:w-[200px]"/>
+              <p>No data to display</p>{" "}
+            </div>
+          )}
         </div>
       </div>
       <Customers />

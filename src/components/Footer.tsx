@@ -46,7 +46,7 @@ const Footer = () => {
           Privacy policy
         </Link>
 
-        <p className="opacity-60"> · </p>
+        <p className="hidden sm:block  opacity-60"> · </p>
 
         <Link className="hover:underline" to={"/"}>
           Terms and Condition
