@@ -5,7 +5,7 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { CartProductType } from "../types/types";
 
-import { IoMdArrowForward } from "react-icons/io";
+import { IoMdCloseCircle } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";
 
 const Sidebar = () => {
@@ -22,9 +22,9 @@ const Sidebar = () => {
         <div className="text-sm font-semibold">Shopping Bag</div>
         <div
           onClick={handleClose}
-          className="cursor-pointer w-8 h-8 flex justify-center "
+          className="cursor-pointer  flex justify-center "
         >
-          <IoMdArrowForward className="text-xl" />
+          <IoMdCloseCircle className="text-2xl" />
         </div>
       </div>
 

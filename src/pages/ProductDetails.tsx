@@ -57,7 +57,7 @@ const ProductDetails = () => {
                 >
                   Add to Cart
                 </button>
-                <div className="text-white bg-black px-4 py-2 font-semibold text-center my-3 text-sm hover:opacity-90">
+                <div className="text-black bg-white border border-black px-4 py-2 font-semibold text-center my-3 text-sm hover:opacity-90">
                 <Link
                   to="/"
                 >
