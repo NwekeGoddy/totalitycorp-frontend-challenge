@@ -47,7 +47,7 @@ const Hero = () => {
               Starting at ₦5.00
             </p>
             <Link to="/">
-              <button onClick={()=>handleClickScroll()} className="text-xs md:text-base text-white bg-black rounded px-4 md:px-6 py-2">
+              <button onClick={()=>handleClickScroll()} className="text-xs md:text-base text-white bg-black rounded px-4 md:px-6 py-2 hover:opacity-80">
                 Discover More
               </button>
             </Link>

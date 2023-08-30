@@ -55,7 +55,7 @@ const Prefooter = () => {
           />
           <button
             onClick={handleSubscribe}
-            className="bg-black text-white px-4 py-2 rounded-md flex-shrink-0 "
+            className="bg-black text-white px-4 py-2 rounded-md flex-shrink-0 hover:opacity-80 "
           >
             Subscribe
           </button>

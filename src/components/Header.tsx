@@ -81,7 +81,7 @@ const Header = () => {
             </div>
             <Link to="/">
               <div onClick={() => handleClickScroll()}>
-                <p>Shop</p>
+                <p className="hover:opacity-80">Shop</p>
               </div>
             </Link>
           </div>
@@ -90,7 +90,7 @@ const Header = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="cursor-pointer flex relative"
             >
-              <BsBag className="text-xl" />
+              <BsBag className="text-xl hover:opacity-80" />
               {itemAmount >= 1 ? (
                 <div className="absolute flex h-2 w-2 -right-0.5 -bottom-0.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>

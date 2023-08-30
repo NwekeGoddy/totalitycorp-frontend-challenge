@@ -274,13 +274,13 @@ const CheckoutForm: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-black hover:opacity-90 text-white py-1 px-4 rounded mb-4"
+                className="bg-black text-white py-1 px-4 rounded mb-4 hover:opacity-80"
               >
                 Complete Order
               </button>
 
               <Link to="/">
-                <button className="bg-black hover:opacity-90 text-white py-1 px-4 rounded mb-4">
+                <button className="bg-white border border-black text-black py-1 px-4 rounded mb-4 hover:opacity-80">
                   Continue Shopping
                 </button>
               </Link>
