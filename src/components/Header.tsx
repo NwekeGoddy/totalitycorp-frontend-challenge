@@ -12,7 +12,7 @@ import { BsBag } from "react-icons/bs";
 const Header = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const { isSignInOpen, setIsSignInOpen, handleCloseSignIn } =
+  const { isSignInOpen, setIsSignInOpen } =
     useContext(SignInContext);
   const { itemAmount } = useContext(CartContext);
 
