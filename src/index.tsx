@@ -5,6 +5,7 @@ import App from "./App";
 import ProductProvider from "./contexts/ProductContext";
 import SidebarProvider from "./contexts/SidebarContext";
 import CartProvider from "./contexts/CartContext";
+import SignInProvider from "./contexts/SignInContext";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <SignInProvider>
       <CartProvider>
         <SidebarProvider>
           <ProductProvider>
@@ -21,6 +23,7 @@ root.render(
           </ProductProvider>
         </SidebarProvider>
       </CartProvider>
+      </SignInProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

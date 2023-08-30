@@ -8,6 +8,7 @@ import CheckoutForm from "./pages/CheckoutForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
+import SignIn from "./components/SignIn";
 
 function ScrollToTopOnRouteChange() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/checkout" element={<CheckoutForm />} />
       </Routes>
+      <SignIn/>
       <Sidebar />
       <Footer />
     </div>

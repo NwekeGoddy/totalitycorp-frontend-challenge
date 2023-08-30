@@ -1,28 +1,62 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../img/myshuplogo.png";
 
 import { SidebarContext } from "../contexts/SidebarContext";
+import { SignInContext } from "../contexts/SignInContext";
 import { CartContext } from "../contexts/CartContext";
+import Avatar from "./Avatar";
 
 import { BsBag } from "react-icons/bs";
 
 const Header = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const { isSignInOpen, setIsSignInOpen, handleCloseSignIn } =
+    useContext(SignInContext);
   const { itemAmount } = useContext(CartContext);
+
+  // Function to get the value of a cookie by its name
+  const getCookie = (name: string) => {
+    const cookieValue = document.cookie.match(
+      `(^|;)\\s*${name}\\s*=\\s*([^;]+)`
+    );
+    return cookieValue ? cookieValue.pop() : "";
+  };
+
+  const getAuthTokenFromCookieOrLocalStorage = () => {
+    // Check if the token exists in a cookie
+    const tokenFromCookie = getCookie("authToken");
+
+    if (tokenFromCookie) {
+      return tokenFromCookie;
+    }
+
+    // If token doesn't exist in a cookie, check local storage
+    const tokenFromLocalStorage = localStorage.getItem("authToken");
+
+    if (tokenFromLocalStorage) {
+      return tokenFromLocalStorage;
+    }
+
+    return null;
+  };
+
+  const isAuthenticated = () => {
+    const token = getAuthTokenFromCookieOrLocalStorage();
+    return !!token; // Return true if token exists
+  };
 
   const handleClickScroll = () => {
     const element = document.getElementById("shop-section");
     if (element) {
-     
-    const offset = -120; 
-    const targetPosition = element.getBoundingClientRect().top + window.scrollY + offset;
+      const offset = -120;
+      const targetPosition =
+        element.getBoundingClientRect().top + window.scrollY + offset;
 
-   
-    setTimeout(function(){
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-  }, 50);
-    
+      setTimeout(function () {
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      }, 50);
     }
   };
 
@@ -46,7 +80,7 @@ const Header = () => {
               </Link>
             </div>
             <Link to="/">
-              <div onClick={()=>handleClickScroll()}>
+              <div onClick={() => handleClickScroll()}>
                 <p>Shop</p>
               </div>
             </Link>
@@ -64,9 +98,43 @@ const Header = () => {
                 </div>
               ) : null}
             </div>
-            <Link to="/">
-              <p>Sign in</p>
-            </Link>
+
+            {isAuthenticated() ? (
+              <>
+                <div
+                  className="cursor-pointer"
+                  onClick={() => {
+                    // setIsSignInOpen(!isSignInOpen);
+                  }}
+                  onMouseEnter={() => setShowTooltip(true)}
+                  onMouseLeave={() => setShowTooltip(false)}
+                >
+                  <Avatar name={"John Doe"} />
+                </div>
+                {showTooltip && (
+                  <div  onMouseEnter={() => setShowTooltip(true)}
+                  onMouseLeave={() => setShowTooltip(false)} className="text-sm sm:text-base absolute z-50 -bottom-5 right-5 transform  bg-white text-gray-700 px-4 py-3 rounded shadow">
+                    <p className="mb-2 cursor-pointer hover:opacity-80" onClick={() => setIsOpen(!isOpen)}>Shopping Cart ({itemAmount})</p>
+                    <p className="mb-2 cursor-pointer hover:opacity-80" onClick={()=>{
+                       document.cookie = `authToken=${""}; path=/; secure`; 
+                       setShowTooltip(false);
+                    }}>Logout</p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div
+                className="cursor-pointer"
+                onClick={() => {
+                  setIsSignInOpen(!isSignInOpen);
+                  alert(
+                    "Use this to Login - From Fakestore API \nUsername: johnd   \nPassword: m38rmF$"
+                  );
+                }}
+              >
+                <p>Sign in</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="bg-[#788e9b] ">

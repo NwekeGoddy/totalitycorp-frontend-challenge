@@ -125,7 +125,7 @@ const Home = () => {
                 { label: "₦0 - ₦100", value: "0-100" },
                 { label: "₦101 - ₦200", value: "101-200" },
                 { label: "₦201 - ₦300", value: "201-300" },
-                { label: "₦300 - Above", value: "300-" },
+                { label: "₦300 - Above", value: "300-100000" },
               ].map((priceRange) => (
                 <label
                   key={priceRange.value}
