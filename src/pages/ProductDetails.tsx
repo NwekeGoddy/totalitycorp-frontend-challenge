@@ -73,7 +73,7 @@ const ProductDetails = () => {
       <Features />
       <Prefooter />
 
-      <CheckoutForm/>
+     
     </div>
   );
 };
